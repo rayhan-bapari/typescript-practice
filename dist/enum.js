@@ -1,61 +1,35 @@
 "use strict";
-// Basic Order Status
-var BasicStatus;
-(function (BasicStatus) {
-    BasicStatus["Pending"] = "PENDING";
-    BasicStatus["Processing"] = "PROCESSING";
-    BasicStatus["Shipped"] = "SHIPPED";
-    BasicStatus["Delivered"] = "DELIVERED";
-    BasicStatus["Cancelled"] = "CANCELLED";
-})(BasicStatus || (BasicStatus = {}));
-function updateOrderStatus(status) {
-    console.log(`Order updated to: ${status}`);
-}
-updateOrderStatus(BasicStatus.Shipped);
-// Basic Roles
-var BasicUserRole;
-(function (BasicUserRole) {
-    BasicUserRole["Admin"] = "ADMIN";
-    BasicUserRole["Manager"] = "MANAGER";
-    BasicUserRole["Customer"] = "CUSTOMER";
-})(BasicUserRole || (BasicUserRole = {}));
-const user = {
-    name: 'Rayhan',
-    role: BasicUserRole.Admin,
-};
-if (user.role === BasicUserRole.Admin) {
-    console.log('Redirect to admin dashboard');
-}
-// Basic Api Req
-var enumHttpsMethod;
-(function (enumHttpsMethod) {
-    enumHttpsMethod["GET"] = "GET";
-    enumHttpsMethod["POST"] = "POST";
-    enumHttpsMethod["PUT"] = "PUT";
-    enumHttpsMethod["DELETE"] = "DELETE";
-})(enumHttpsMethod || (enumHttpsMethod = {}));
-function enumSendReq(method, url) {
-    console.log(`Sending ${method} request to ${url}`);
-}
-enumSendReq(enumHttpsMethod.GET, 'https://jsonplaceholder.typicode.com/users/1');
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaymentMethod = exports.HttpsMethod = exports.Role = exports.Status = void 0;
+// Order Status
+var Status;
+(function (Status) {
+    Status["Pending"] = "PENDING";
+    Status["Processing"] = "PROCESSING";
+    Status["Shipped"] = "SHIPPED";
+    Status["Delivered"] = "DELIVERED";
+    Status["Cancelled"] = "CANCELLED";
+})(Status || (exports.Status = Status = {}));
+// Roles
+var Role;
+(function (Role) {
+    Role["Admin"] = "ADMIN";
+    Role["Manager"] = "MANAGER";
+    Role["Customer"] = "CUSTOMER";
+})(Role || (exports.Role = Role = {}));
+// Api Req
+var HttpsMethod;
+(function (HttpsMethod) {
+    HttpsMethod["GET"] = "GET";
+    HttpsMethod["POST"] = "POST";
+    HttpsMethod["PUT"] = "PUT";
+    HttpsMethod["DELETE"] = "DELETE";
+})(HttpsMethod || (exports.HttpsMethod = HttpsMethod = {}));
 // Basic Payment Method
-var enumPaymentMethod;
-(function (enumPaymentMethod) {
-    enumPaymentMethod["Cash"] = "CASH";
-    enumPaymentMethod["Sslcommerz"] = "SSLCOMMERZ";
-    enumPaymentMethod["Bkash"] = "BKASH";
-    enumPaymentMethod["Nagad"] = "NAGAD";
-})(enumPaymentMethod || (enumPaymentMethod = {}));
-function enumPaymentProccess(method) {
-    switch (method) {
-        case enumPaymentMethod.Bkash:
-            console.log(`Processing via ${enumPaymentMethod.Bkash}...`);
-            break;
-        case enumPaymentMethod.Sslcommerz:
-            console.log(`Processing via ${enumPaymentMethod.Sslcommerz}...`);
-            break;
-        default:
-            console.log(`Processing via ${enumPaymentMethod.Cash}...`);
-    }
-}
-enumPaymentProccess(enumPaymentMethod.Bkash);
+var PaymentMethod;
+(function (PaymentMethod) {
+    PaymentMethod["Cash"] = "CASH";
+    PaymentMethod["Sslcommerz"] = "SSLCOMMERZ";
+    PaymentMethod["Bkash"] = "BKASH";
+    PaymentMethod["Nagad"] = "NAGAD";
+})(PaymentMethod || (exports.PaymentMethod = PaymentMethod = {}));
